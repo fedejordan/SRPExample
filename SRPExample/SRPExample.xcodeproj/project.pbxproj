@@ -16,6 +16,7 @@
 		6D8BF835203A76AD0004A954 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BF833203A76AD0004A954 /* ItemTableViewCell.swift */; };
 		6D8BF836203A76AD0004A954 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8BF834203A76AD0004A954 /* ItemTableViewCell.xib */; };
 		6D8BF838203A77E80004A954 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BF837203A77E80004A954 /* Item.swift */; };
+		6D8BF83A203A8BF50004A954 /* ItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8BF839203A8BF50004A954 /* ItemsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		6D8BF833203A76AD0004A954 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		6D8BF834203A76AD0004A954 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		6D8BF837203A77E80004A954 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		6D8BF839203A8BF50004A954 /* ItemsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				6D8BF813203A76480004A954 /* AppDelegate.swift */,
 				6D8BF815203A76480004A954 /* ItemsViewController.swift */,
+				6D8BF839203A8BF50004A954 /* ItemsInteractor.swift */,
 				6D8BF837203A77E80004A954 /* Item.swift */,
 				6D8BF833203A76AD0004A954 /* ItemTableViewCell.swift */,
 				6D8BF834203A76AD0004A954 /* ItemTableViewCell.xib */,
@@ -213,6 +216,7 @@
 				6D8BF816203A76480004A954 /* ItemsViewController.swift in Sources */,
 				6D8BF835203A76AD0004A954 /* ItemTableViewCell.swift in Sources */,
 				6D8BF814203A76480004A954 /* AppDelegate.swift in Sources */,
+				6D8BF83A203A8BF50004A954 /* ItemsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
