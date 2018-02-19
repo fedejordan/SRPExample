@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ItemsViewController: UIViewController {
 
     @IBOutlet private weak var itemsTableView: UITableView!
     private var items = [Item]()
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 }
 
 // MARK:- UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension ItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ItemTableViewCell.height
@@ -45,7 +45,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK:- UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension ItemsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
