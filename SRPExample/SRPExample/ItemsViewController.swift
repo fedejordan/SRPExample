@@ -10,7 +10,7 @@ import UIKit
 
 class ItemsViewController: UIViewController {
 
-    @IBOutlet private weak var itemsTableView: UITableView!
+    @IBOutlet private weak var itemsCollectionView: UICollectionView!
     private var itemsInteractor = ItemsInteractor()
     
     override func viewDidLoad() {
@@ -18,36 +18,51 @@ class ItemsViewController: UIViewController {
         
         itemsInteractor.loadData()
         
-        itemsTableView.register(UINib.init(nibName: ItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ItemTableViewCell.identifier)
+        itemsCollectionView.register(UINib.init(nibName: ItemCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
     }
 
 }
 
-// MARK:- UITableViewDataSource
-extension ItemsViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ItemTableViewCell.height
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// MARK:- UICollectionViewDataSource
+extension ItemsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemsInteractor.itemsCount()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier) as? ItemTableViewCell else { return UITableViewCell() }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as? ItemCollectionViewCell else { return UICollectionViewCell() }
         let itemImage = itemsInteractor.itemImage(atIndex: indexPath.row)
         let itemName = itemsInteractor.itemName(atIndex: indexPath.row)
         cell.setup(withItemImage: itemImage, itemName: itemName)
         return cell
     }
+    
 }
 
-// MARK:- UITableViewDelegate
-extension ItemsViewController: UITableViewDelegate {
+// MARK:- UICollectionViewDelegateFlowLayout
+extension ItemsViewController: UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize = CGSize(width: ItemCollectionViewCell.width, height: ItemCollectionViewCell.height)
+        return cellSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         itemsInteractor.didSelectItem(atIndex: indexPath.row)
     }
+    
 }
+
 

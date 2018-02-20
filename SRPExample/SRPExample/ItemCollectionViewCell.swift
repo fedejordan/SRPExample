@@ -1,5 +1,5 @@
 //
-//  ItemTableViewCell.swift
+//  ItemCollectionViewCell.swift
 //  SRPExample
 //
 //  Created by Federico Jordán on 19/2/18.
@@ -8,17 +8,18 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+class ItemCollectionViewCell: UICollectionViewCell {
 
-    static let identifier: String = "ItemTableViewCell"
-    static let height: CGFloat = 80.0
+    static let identifier: String = "ItemCollectionViewCell"
+    static let width: CGFloat = 100.0
+    static let height: CGFloat = 135.0
     
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemLabel: UILabel!
     
 }
 
-extension ItemTableViewCell {
+extension ItemCollectionViewCell {
     func setup(withItemImage itemImage: UIImage, itemName: String) {
         itemImageView.image = itemImage
         itemLabel.text = itemName
