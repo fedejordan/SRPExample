@@ -32,8 +32,8 @@ extension ItemsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as? ItemCollectionViewCell else { return UICollectionViewCell() }
-        let itemImage = itemsInteractor.itemImage(atIndex: indexPath.row)
-        let itemName = itemsInteractor.itemName(atIndex: indexPath.row)
+        let itemImage = itemsInteractor.itemImage(atIndex: indexPath.item)
+        let itemName = itemsInteractor.itemName(atIndex: indexPath.item)
         cell.setup(withItemImage: itemImage, itemName: itemName)
         return cell
     }
@@ -49,7 +49,7 @@ extension ItemsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        itemsInteractor.didSelectItem(atIndex: indexPath.row)
+        itemsInteractor.didSelectItem(atIndex: indexPath.item)
     }
     
 }
